@@ -2,6 +2,7 @@ package br.com.fatec.teste.user;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
 
 @Document(collection = "users")
 public class User {
@@ -11,6 +12,14 @@ public class User {
     private String name;
     
     private String email;
+
+    private String password;
+
+    private String lolNickname;
+
+    private String region;
+
+    private LocalDateTime createdAt;
 
     public User(){
     }
@@ -36,6 +45,38 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLolNickname() {
+        return lolNickname;
+    }
+
+    public void setLolNickname(String lolNickname) {
+        this.lolNickname = lolNickname;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
 }
