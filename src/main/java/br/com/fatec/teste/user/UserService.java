@@ -4,6 +4,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+import javax.management.RuntimeErrorException;
+
 import java.time.LocalDateTime;
 
 @Service
@@ -16,6 +19,11 @@ public class UserService {
     }
 
     public User create(User user) {
+
+        if(repository.findByEmail(user.getEmail()) != null) {
+            throw new RuntimeException("Email já registrado");
+        }
+
         user.setCreatedAt(LocalDateTime.now());
         return repository.save(user);
     }
